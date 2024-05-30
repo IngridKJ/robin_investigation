@@ -31,7 +31,7 @@ class BoundaryConditions:
         # Initiating the arrays for the Robin weight
         r_w = np.tile(np.eye(sd.dim), (1, sd.num_faces))
         value = np.reshape(r_w, (sd.dim, sd.dim, sd.num_faces), "F")
-        bc.robin_weight = value * self.weight_coefficient_for_testing
+        bc.robin_weight = value
 
     def bc_values_robin(self, boundary_grid: pp.BoundaryGrid) -> np.ndarray:
         """"""
@@ -50,13 +50,6 @@ class BoundaryConditions:
 class Model(BoundaryConditions, BaseModelRobin): ...
 
 
-coefficients = [(0, "0"), (1, "robin"), (0.000001, "0_000001"), (5000000, "5000000")]
-
-for coefficient in coefficients:
-    params = {
-        "folder_name": f"west_dirichlet_{str(coefficient[1])}",
-        "grid_type": "simplex",
-    }
-    model = Model(params)
-    model.weight_coefficient_for_testing = coefficient[0]
-    pp.run_time_dependent_model(model, params)
+params = {"folder_name": "zeroshit", "grid_type": "cartesian"}
+model = Model(params)
+pp.run_time_dependent_model(model, params)

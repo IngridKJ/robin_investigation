@@ -368,6 +368,13 @@ class RobinBoundaryConditionsWithBoundaryGrids:
         self.update_boundary_condition(self.bc_robin_key, self.bc_values_robin)
 
 
+class BaseModelRobin(
+    MyGeometry,
+    RobinBoundaryConditionsWithBoundaryGrids,
+    MomentumBalance,
+): ...
+
+
 class BaseModel(
     MyGeometry,
     MomentumBalance,
