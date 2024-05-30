@@ -6,18 +6,6 @@ import porepy as pp
 from porepy.models.momentum_balance import MomentumBalance
 
 
-class NamesAndConstants:
-    @property
-    def bc_robin_key(self) -> str:
-        """The key for Robin boundary conditions."""
-        return "bc_robin"
-
-    @property
-    def bc_values_mechanics_key(self) -> str:
-        """Key for mechanical boundary conditions in the data dictionary."""
-        return "bc_values_mechanics"
-
-
 class MyGeometry:
     def nd_rect_domain(self, x, y) -> pp.Domain:
         box: dict[str, pp.number] = {"xmin": 0, "xmax": x}
@@ -100,6 +88,17 @@ class RobinBoundaryConditionsWithBoundaryGrids:
         bc values.
 
     """
+
+    # Just needed
+    @property
+    def bc_robin_key(self) -> str:
+        """The key for Robin boundary conditions."""
+        return "bc_robin"
+
+    @property
+    def bc_values_mechanics_key(self) -> str:
+        """Key for mechanical boundary conditions in the data dictionary."""
+        return "bc_values_mechanics"
 
     # From boundary_condition.py
     def _combine_boundary_operators(
@@ -370,7 +369,6 @@ class RobinBoundaryConditionsWithBoundaryGrids:
 
 
 class BaseModel(
-    NamesAndConstants,
     MyGeometry,
     MomentumBalance,
 ): ...
