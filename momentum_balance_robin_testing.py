@@ -50,7 +50,12 @@ class BoundaryConditions:
 class Model(BoundaryConditions, BaseModelRobin): ...
 
 
-coefficients = [(0, "0"), (1, "robin"), (0.000001, "0_000001"), (5000000, "5000000")]
+coefficients = [
+    (0, "alpha_0"),
+    (1, "alpha_1"),
+    (0.000001, "alpha_0_000001"),
+    (5e12, "alpha_5e12"),
+]
 
 for coefficient in coefficients:
     params = {

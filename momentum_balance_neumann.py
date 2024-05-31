@@ -30,6 +30,6 @@ class BoundaryConditions:
 class Model(BoundaryConditions, BaseModel): ...
 
 
-params = {"folder_name": "west_dirichlet_all_neumann", "grid_type": "simplex"}
+params = {"folder_name": "west_dirichlet_all_other_neumann", "grid_type": "simplex"}
 model = Model(params)
 pp.run_time_dependent_model(model, params)
