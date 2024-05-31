@@ -22,7 +22,7 @@ as expected.
   alpha = 0.000001 for cartesian grids), we should see similar simulation results as
   when Neumann are chosen for the remaining boundaries. Alpha = 0 worked nicely for
   simplex grids, and not as well for cartesian. See [here for
-  simplex](./robin_limit_to_neumann_alpha_0_cartesian.png), [here for
+  simplex](./robin_limit_to_neumann_alpha_0.png), [here for
   cartesian (alpha = 0)](./robin_limit_to_neumann_alpha_0_cartesian.png)  and [here for
   cartesian (alpha = 0.000001)](./robin_limit_to_neumann_alpha_0_000001_cartesian.png).
 
