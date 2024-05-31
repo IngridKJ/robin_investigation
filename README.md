@@ -25,3 +25,6 @@ as expected.
   simplex](./robin_limit_to_neumann_alpha_0_cartesian.png), [here for
   cartesian (alpha = 0)](./robin_limit_to_neumann_alpha_0_cartesian.png)  and [here for
   cartesian (alpha = 0.000001)](./robin_limit_to_neumann_alpha_0_000001_cartesian.png).
+
+  Note: The cartesian grid with alpha = 0 seemingly only runs for cell_size = 0.05 and
+  bigger in a unit square. Matrix is reported singular for e.g. 0.025.
