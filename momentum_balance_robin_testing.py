@@ -50,17 +50,23 @@ class BoundaryConditions:
 class Model(BoundaryConditions, BaseModelRobin): ...
 
 
+# coefficients = [
+#     (0, "alpha_0", "simplex"),
+#     (1, "alpha_1", "simplex"),
+#     (0.000001, "alpha_0_000001", "simplex"),
+#     (5e12, "alpha_5e12", "simplex"),
+# ]
 coefficients = [
-    (0, "alpha_0"),
-    (1, "alpha_1"),
-    (0.000001, "alpha_0_000001"),
-    (5e12, "alpha_5e12"),
+    (0, "alpha_0", "cartesian"),
+    (1, "alpha_1", "cartesian"),
+    (0.000001, "alpha_0_000001", "cartesian"),
+    (5e12, "alpha_5e12", "cartesian"),
 ]
 
 for coefficient in coefficients:
     params = {
-        "folder_name": f"west_dirichlet_{str(coefficient[1])}",
-        "grid_type": "simplex",
+        "folder_name": f"west_dirichlet_{str(coefficient[1])}_{coefficient[2]}",
+        "grid_type": coefficient[2],
     }
     model = Model(params)
     model.weight_coefficient_for_testing = coefficient[0]
